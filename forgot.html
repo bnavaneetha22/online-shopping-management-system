@@ -1,0 +1,48 @@
+<%-- 
+    Document   : forgot
+    Created on : 18 Jan, 2021, 8:35:27 PM
+    Author     : student
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+        <style>
+             .box {
+  background-color:white;
+  width: 700px;;
+  border: 5px solid green;
+  padding: 100px;
+  margin-left:auto;
+  margin-right: auto;
+}
+            </style>
+    </head>
+    <body>
+        <div class="box">
+            <form action="forgot">
+                <table> 
+                    <tr>
+                        <th> <label>Enter email ID:</label></th>
+                        <th><input type="text" name="email" required=""></th>
+                    </tr>
+                    <tr>
+                        <th><label>Enter your BirthYear</label></th>
+                        <th><input type="text" name="year" required=""></th>
+                    </tr>
+                    <tr>
+                         <th><label>Enter your phone number</label></th>
+                        <th><input type="text" name="phone" required=""></th>
+                    </tr>
+                    <tr>
+                        <th><button type="submit">submit<button></th>
+                    </tr>
+                </table>
+               
+            </form>
+        </div>
+    </body>
+</html>

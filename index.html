@@ -1,0 +1,649 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+        <style>
+             body{
+        background-image: url('../../../back.jpg');
+    }
+    
+    
+    
+    /*login form*/
+    
+    .signup{
+  background-color: #555;
+  color: white;
+  padding: 20px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  width:100px;
+  margin-top: 3px;
+  margin-right: 5px;
+  float:right;
+        
+    }
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+     background-color: #555;
+  color: white;
+  padding: 20px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  width:100px;
+  margin-top: 3px;
+  margin-right: 5px;
+  float:right;
+}
+
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 350px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background:#ccc;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover ,.signup:hover {
+  opacity: 1;
+}
+    
+    /*topnav*/
+    .topnav {
+  overflow: hidden;
+    margin-top: 2px;
+  
+}
+
+.topnav a {
+  float:right;
+  color: white;
+  background-color:#555;
+  margin:2px;
+  text-align: center;
+  padding: 18px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.logo
+{
+    padding:1px;
+}
+
+.topnav a:hover {
+
+  opacity:0.8;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+    
+    
+.w3-content w3-section
+ {
+     padding:16px;
+ }
+ .mySlides {display:none;}
+    
+    * {
+  box-sizing: border-box;
+}
+.descs
+{
+    width:16.66%
+    text-align:left;
+}
+.columns {
+    align-items:center;
+  float: left;
+  width: 16.66%;
+  padding: 0px;
+}
+.rows {
+    padding:16px;
+}
+
+/* Clearfix (clear floats) */
+.rows::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 500px) {
+  .columns {
+    width: 16.66%;
+  }
+}
+    
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color:darkblue;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.logo{
+    padding : 1px;
+    float:left;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color:black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  opacity:0.8;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 100%;
+  left: 0;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content .header {
+  background: red;
+  padding: 16px;
+  color: white;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  background-color: #ccc;
+  height: 250px;
+}
+
+.column a {
+  float: none;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.column a:hover {
+  background-color: #ddd;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    height: auto;
+  }
+}
+/*about page*/
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.columnn {
+  float: left;
+  width: 25%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+  .columnn {
+    width: 100%;
+    display: block;
+  }
+}
+
+/*hamburger*/
+.mobile-container {
+  max-width: 480px;
+  margin: auto;
+  background-color: #555;
+  height: 500px;
+  color: white;
+  border-radius: 10px;
+}
+
+.topnavs {
+  overflow: hidden;
+  background-color: #333;
+  position: fix;
+}
+
+.topnavs #myLinks {
+  display: none;
+}
+
+.topnavs a {
+  color: white;
+  padding:  55px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+  
+}
+p{
+    float:left;
+}
+.topnavs a.icon {
+  background: black;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.topnavs a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+</style>
+    </head>
+    <body>
+    
+        
+        
+       <div class="topnav">
+    <div class="logo"><img src="logo.png" alt="" width="150px" height="60px"/></div>
+    <a href="">Gold rate</a> 
+    <div ><button class="signup" onclick="signup()">Register</a>
+          <script>
+              function signup() {
+               location.replace("signup.html")
+             }
+           </script> 
+    </div>   
+    <div>
+        <button class="open-button" onclick="login()">Login</button>
+        <script>
+            function login(){
+                location.href="login.html"
+            }
+        </script>
+   
+    </div>
+  </div>
+    
+<div class="navbar">
+   <div class="dropdown">
+    <button class="dropbtn">Golds 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">   
+      <div class="row">
+        <div class="column">
+            <h3>Earrings</h3>
+            <a href="gold/Earrings/jhumka/jhumka.html">Jhumka</a>
+            <a href="gold/Earrings/stud/stud.html">Stud</a>
+            <a href="gold/Earrings/drop/drop.html">Drop</a>
+        </div>
+        <div class="column">
+          <h3>Finger Ring</h3>
+          <a href="gold/Finger rings/Party/Party.html">Party</a>
+          <a href="gold/Finger rings/Engagement/Engagement.html">Engagement Ring</a>
+          <a href="gold/Finger rings/Traditional/Traditional.html">Traditional</a>
+        </div>
+        <div class="column">
+            <h3>Other Category</h3>
+            <a href="gold/Othe Category/Bangle/Bangle.html">Bangle</a>
+            <a href="gold/Othe Category/Bracelet/Bracelet.html">Bracelet</a>
+            <a href="gold/Othe Category/Chain/chain.html">Chain</a>
+            <a href="gold/Othe Category/Mangalsutra/Mangalsutra.html">Mangalsutra</a>
+        </div>
+      </div>
+    </div>
+  </div> 
+    
+     <div class="dropdown">
+    <button class="dropbtn">Silver
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+       
+      <div class="row">
+        <div class="column">
+            <h3>Anklet</h3>
+            <a href="silver/Anklet/Party/Party.html">Party</a>
+            <a href="silver/Anklet/Traditional/Traditional.html">Traditional</a>
+            <a href="silver/Anklet/Normal/Normal.html">Normal</a>
+            
+        </div>
+        <div class="column">
+          <h3>
+              <a href="Earrings/silver earrings/silver earrings.html">Earrings</a></h3>
+             <a href="silver/Earrings/Stud/stud.html">Stud</a>
+             <a href="silver/Earrings/Jhumka/jhumka.html">Jhumka </a>
+            <a href="silver/Earrings/Drop/drop.html">Drop</a>
+            
+           
+            
+        </div>
+        <div class="column">
+           <h3>Other category</h3>
+           <a href="silver/Other Category/Finger RIng/Engagement.html">FInger ring</a>
+           <a href="silver/Other Category/Chain/chain.html">Chain</a>
+           <a href="silver/Other Category/Bracelet/Bracelet.html"> Bracelet</a>
+           
+           
+        </div>
+      </div>
+    </div>
+  </div> 
+  
+      <div class="dropdown">
+    <button class="dropbtn">Platinum
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+       
+      <div class="row">
+        <div class="column">
+            <h3>Chain</h3>
+           
+            <a href="platinum/Chain/Party/Party.html">Party</a>
+            <a href="platinum/Chain/Traditional/Traditional.html">Traditional</a>
+             <a href="platinum/Chain/Normal/Normal.html">Normal</a>
+           
+        </div>
+        <div class="column">
+          <h3>
+                      <a href="Earrings/Platinum earrings/platinum earrings.html">Earrings</a></h3>
+                    
+                    <a href="platinum/Earrings/Stud/stud.html">Stud</a>
+                    <a href="platinum/Earrings/Hanger/Hanger.html">Hanger</a>
+                    <a href="platinum/Earrings/Drop/drop.html">Drop</a>
+                   
+        </div>
+        <div class="column">
+            <h3>Other category</h3>
+            <a href="platinum/Other Category/Finger ring/Engagement.html">FInger Ring</a>
+            <a href="platinum/Other Category/Pendant/Bracelet.html">Pendant</a>
+            <a href="platinum/Other Category/Bracelet/Bracelet.html">Bracelet</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+  
+ 
+<div class="rows">
+  <div class="columns">
+      <a href="gold/Earrings/Earrings/Earrings.html">
+      <img src="Gallery/1.png" alt="Snow" ></a>
+    <div class="descs">Earringss</div>
+  </div>
+  <div class="columns">
+         
+    <a href="gold/Othe Category/Mangalsutra/Mangalsutra.html">
+    <img src="Gallery/2.png" alt="Forest" >
+    </a>
+        <div class="descs">Mangalsutra</div>
+  </div>
+  <div class="columns">
+       <a href="gold/Othe Category/Bangle/Bangle.html">
+           <img src="Gallery/3.png" alt="Mountains"> </a>
+   
+        <div class="descs">Bangle</div>
+  </div>
+      <div class="columns">
+            <a href="gold/Finger rings/Traditional/Traditional.html">
+                <img src="Gallery/4.png" alt="Mountains" ></a>
+  
+    <div class="descs">FInger ring</div>
+  </div>
+      <div class="columns">
+          <a href="gold/Othe Category/Chain/chain.html">
+              <img src="Gallery/5.png" alt="Mountains" ></a>
+    
+        <div class="descs">chain</div>
+  </div>
+      <div class="columns">
+          <a href="gold/Othe Category/Bracelet/Bracelet.html">
+    <img src="Gallery/6.png" alt="Mountains" ></a>
+    <div class="descs">Bracelet</div>
+  </div>
+</div>
+    
+    
+    <div class="w3-content w3-section" style="max-width:100%">
+  <img class="mySlides" src="Slideshow/1.png" style="width:100%">
+  <img class="mySlides" src="Slideshow/2.jpg" style="width:100%">
+  <img class="mySlides" src="Slideshow/3.jpeg" style="width:100%">
+  <img class="mySlides" src="Slideshow/3.png" style="width:100%">
+  <img  class="mySlides" src="Slideshow/4.jpeg" style="width:100%">
+  <img  class="mySlides" src="Slideshow/5.png" style="width:100%">
+</div>
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+ 
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+</script>
+
+<div class="about-section">
+  <h1>About Us Page</h1>
+  <p>Some text about who we are and what we do.</p>
+</div>
+
+<h2 style="text-align:center">Our Team</h2>
+<div class="rown">
+  <div class="columnn">
+    <div class="card">
+      <img src="/w3images/team1.jpg" alt="Neethu" style="width:100%">
+      <div class="container">
+        <h2>Navaneetha B</h2>
+        <p class="title">Web developer</p>
+        <p>Navaneetha Bolisetty is a web developer of this website.
+        </p>
+        <p>r161610@rguktrkv.ac.in</p>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="columnn">
+    <div class="card">
+      <img src="/w3images/team2.jpg" alt="Vara" style="width:100%">
+      <div class="container">
+        <h2>Varalakshmi G</h2>
+        <p class="title">web developer</p>
+        <p>Varalakshmi galla is another web developer of this website</p>
+        <p>r161609@rguktrkv.ac.in</p>
+       
+      </div>
+    </div>
+  </div>
+  
+  <div class="columnn">
+    <div class="card">
+      <img src="/w3images/team3.jpg" alt="Renu" style="width:100%">
+      <div class="container">
+        <h2>Yellamma C</h2>
+        <p class="title">Designer</p>
+        <p>Yellamma Chintakayala is designer of this website</p>
+        <p>r161612@rguktrkv.ac.in</p>
+       
+      </div>
+    </div>
+  </div>
+    
+    <div class="columnn">
+    <div class="card">
+      <img src="/w3images/team3.jpg" alt="Thanu" style="width:100%">
+      <div class="container">
+        <h2>Thanuja R</h2>
+        <p class="title">New Thoughter</p>
+        <p>Thanuja Ramu is reason of creation of this website</p>
+        <p>r161562@rguktrkv.ac.in</p>
+       
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+

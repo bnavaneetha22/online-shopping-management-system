@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>html Page</title>
+        <style>
+            .box {
+  background-color: lightgrey;
+  width: 700px;;
+  border: 5px solid green;
+  padding: 100px;
+  margin-left:auto;
+  margin-right: auto;
+}
+     
+.print{
+    float:right; margin-top:20px; background-color: brown;
+    width:100px;
+    padding: 14px 20px;
+    color:white;
+}
+
+* {
+  box-sizing: border-box;
+}
+.button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+        </style>
+    </head>
+    <body>
+        <div class="box">
+        <%
+            String account=(String) session.getAttribute("account");
+            String phone=(String) session.getAttribute("phone");
+            String address=(String) session.getAttribute("address");
+            String email=(String) session.getAttribute("email");
+            String pincode=(String) session.getAttribute("pincode");
+            if(email==null){
+        %>
+        <h2>Pay Through</h2>
+        <p>Login for buy product</p><br>
+            <button onclick="location.replace('login.html')" class="button">login</button>
+          
+        <%} else if(email!=null) {%>
+        <h2 style="text-align: center;">Pay Through</h2>
+        <table>
+            <tr>
+                <th>Your Account Number :</th>
+                <td><%out.println(account);%></td>
+            </tr>
+            <tr>
+                <th>Your Email Id       :</th>
+                <td><%out.println(email);%></td>
+            </tr>
+            <tr>
+                <th>Your Phone Number   :</th>
+                <td><%out.println(phone);%></td>
+            </tr>
+            <tr>
+                <th>Your Address        :</th>
+                <td><%out.println(address);%></td>
+            </tr>
+            <tr>
+                <th>Your Pincode         :</th>
+                <td><%out.println(pincode);%></td>
+            </tr>
+          
+        </table>
+            <p>payment automatically run in background if you click payment button</p><br>
+            <button onclick="myFunction()" class="button">Payment</button>
+            <button onclick="window.print()" class="print">print</button>
+
+        <script type="text/javascript">
+        function myFunction(){
+        ConfirmStatus = confirm("Payment Done Successfully \n\
+        Continue Your Shopping");
+        if (ConfirmStatus == true) {
+                location.replace("index.html");
+        }
+        }
+    </script>
+            
+        <%}%>
+        </div>
+    </body>
+    
+</html>

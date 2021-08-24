@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial;
+  color:black;
+  background-image: url("../../../back.jpg");
+}
+.previous {
+    float:left;
+  color: black;
+   text-decoration: none;
+  display: inline-block;
+  padding: 20px 15px;
+   
+}
+
+body{
+  margin: 20px;
+  font: 12px/18px "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+}
+.button {
+  /* text styles */
+  font-size: 21px;
+  line-height: 18px;
+  color: #fff;
+  text-decoration: none;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  margin-top: 40px;
+  
+  /* box styles */
+  display: inline-block;
+  height: 19px;
+  padding: 20px 50px;
+  border: 1px solid;
+  border-color: #2d86b6 #24659e #255796;
+  border-radius: 21px;
+  box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2) inset, 0 1px 1px rgba(1, 4, 8, 0.2);
+  
+  /* gradients */
+  background-color: #52b6ec;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF52B6EC', endColorstr='#FF2E75CE');
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #52b6ec), color-stop(100%, #2e75ce));
+  background-image: -webkit-linear-gradient(top, #52b6ec 0%, #2e75ce 100%);
+  background-image: -moz-linear-gradient(top, #52b6ec 0%, #2e75ce 100%);
+  background-image: -o-linear-gradient(top, #52b6ec 0%, #2e75ce 100%);
+  background-image: linear-gradient(top, #52b6ec 0%, #2e75ce 100%);
+    
+}
+.button:hover {
+  text-decoration: none;
+  border-color: #377cae #175a9c #0c4893;
+  box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2) inset, 0 1px 1px rgba(5, 64, 140, 0.2);
+  
+  background-color: #4fa6e4;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF4FA6E4', endColorstr='#FF1462C4');
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #4fa6e4), color-stop(100%, #1462c4));
+  background-image: -webkit-linear-gradient(top, #4fa6e4 0%, #1462c4 100%);
+  background-image: -moz-linear-gradient(top, #4fa6e4 0%, #1462c4 100%);
+  background-image: -o-linear-gradient(top, #4fa6e4 0%, #1462c4 100%);
+  background-image: linear-gradient(top, #4fa6e4 0%, #1462c4 100%);
+}
+.button:active {
+  border-color: #094b84 #094b84 #0f4585;
+  box-shadow: 0 1px 1px rgba(241, 243, 247, 0.2), 0 0 20px rgba(0, 0, 0, 0.5) inset;
+  
+  background-color: #1c7ec9;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF1C7EC9', endColorstr='#FF2395D9');
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #1c7ec9), color-stop(100%, #2395d9));
+  background-image: -webkit-linear-gradient(top, #1c7ec9 0%, #2395d9 100%);
+  background-image: -moz-linear-gradient(top, #1c7ec9 0%, #2395d9 100%);
+  background-image: -o-linear-gradient(top, #1c7ec9 0%, #2395d9 100%);
+  background-image: linear-gradient(top, #1c7ec9 0%, #2395d9 100%);
+}
+
+
+
+
+.row{
+    margin-top: 50px;
+}
+
+.column {
+  float: left;
+  width: 25%;
+  padding: 10px;
+  height: 70px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the four columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+.price
+{
+    
+  background-color:forestgreen;
+  color: white;
+  padding: 20px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  width:100px;
+  margin-left: 100px;
+  margin-top: 25px;
+  margin-right: 5px;
+  
+}
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.left {
+  left: 0;
+ 
+}
+
+.right {
+   
+  right: 0;
+ 
+}
+
+
+* {box-sizing: border-box;}
+
+.img-magnifier-container {
+  position:relative;
+}
+
+.img-magnifier-glass {
+  position: absolute;
+  border: 3px solid #000;
+  border-radius: 50%;
+  cursor: none;
+  /*Set the size of the magnifier glass:*/
+  width: 100px;
+  height: 100px;
+}
+</style>
+<script>
+function magnify(imgID, zoom) {
+  var img, glass, w, h, bw;
+  img = document.getElementById(imgID);
+  /*create magnifier glass:*/
+  glass = document.createElement("DIV");
+  glass.setAttribute("class", "img-magnifier-glass");
+  /*insert magnifier glass:*/
+  img.parentElement.insertBefore(glass, img);
+  /*set background properties for the magnifier glass:*/
+  glass.style.backgroundImage = "url('" + img.src + "')";
+  glass.style.backgroundRepeat = "no-repeat";
+  glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";
+  bw = 3;
+  w = glass.offsetWidth / 2;
+  h = glass.offsetHeight / 2;
+  /*execute a function when someone moves the magnifier glass over the image:*/
+  glass.addEventListener("mousemove", moveMagnifier);
+  img.addEventListener("mousemove", moveMagnifier);
+  /*and also for touch screens:*/
+  glass.addEventListener("touchmove", moveMagnifier);
+  img.addEventListener("touchmove", moveMagnifier);
+  function moveMagnifier(e) {
+    var pos, x, y;
+    /*prevent any other actions that may occur when moving over the image*/
+    e.preventDefault();
+    /*get the cursor's x and y positions:*/
+    pos = getCursorPos(e);
+    x = pos.x;
+    y = pos.y;
+    /*prevent the magnifier glass from being positioned outside the image:*/
+    if (x > img.width - (w / zoom)) {x = img.width - (w / zoom);}
+    if (x < w / zoom) {x = w / zoom;}
+    if (y > img.height - (h / zoom)) {y = img.height - (h / zoom);}
+    if (y < h / zoom) {y = h / zoom;}
+    /*set the position of the magnifier glass:*/
+    glass.style.left = (x - w) + "px";
+    glass.style.top = (y - h) + "px";
+    /*display what the magnifier glass "sees":*/
+    glass.style.backgroundPosition = "-" + ((x * zoom) - w + bw) + "px -" + ((y * zoom) - h + bw) + "px";
+  }
+  function getCursorPos(e) {
+    var a, x = 0, y = 0;
+    e = e || window.event;
+    /*get the x and y positions of the image:*/
+    a = img.getBoundingClientRect();
+    /*calculate the cursor's x and y coordinates, relative to the image:*/
+    x = e.pageX - a.left;
+    y = e.pageY - a.top;
+    /*consider any page scrolling:*/
+    x = x - window.pageXOffset;
+    y = y - window.pageYOffset;
+    return {x : x, y : y};
+  }
+}
+</script>
+</style>
+</head>
+<body>
+
+<div class="split left">
+
+
+<p style="text-align:center">Mouse over the image to magnify image:</p>
+
+<div class="img-magnifier-container">
+    
+  <img id="myimage" src="7.jpeg" width="600" height="400">
+</div>
+
+
+
+<script>
+/* Initiate Magnify Function
+with the id of the image, and the strength of the magnifier glass:*/
+magnify("myimage", 2);
+</script>
+</div>
+
+<div class="split right">
+    
+    <div>
+    <a href="drop.html" class="previous">&laquo; Previous</a>
+<a href="../../../index.html" class="previous" style="float:right; margin-right: 20px;">&#x1F3E0; home</a>
+    </div>
+    <h1 style="text-align:center; margin-top: 50px;">Drop earring wedding Golden drop</h1>
+        <div style="width: 100%;">
+        <div style="width: 50%; height: 100px; float: left; text-align: center"> 
+            <p>Price of the product is</p>
+            <div id="myDIV" style="font-size: 20px"><b>$123</b></div>
+           <p>to know price in dollar or rupee click price button</p>
+           <p style="font-size:10px;">*Weight and Price may vary subject to the stock available.</p>
+        </div>
+        <div style="margin-left: 50%; height: 100px; align-items: center"> 
+            <p><button onclick="myFunction()" class="price">price</button></p>
+            <script>
+            function myFunction() {
+              var x = document.getElementById("myDIV");
+              if (x.innerHTML === "$123") {
+                x.innerHTML = "Rs.36,336";
+              } else {
+                x.innerHTML = "$123";
+              }
+            }
+            </script>
+
+        </div>
+    </div>
+
+<div class="row">
+    <h3>Price breakup</h3>
+  <div class="column" >
+    <h4>Gold</h4>
+    <p>288801.56</p>
+  </div>
+  <div class="column" >
+    <h4>Other stone</h4>
+    <p>RS.140.00</p>
+  </div>
+  <div class="column" >
+    <h4>Making</h4>
+    <p>Rs.6336.33</p>
+  </div>
+  <div class="column" >
+      <h4>Tax</h4>
+    <p>Rs.1083.55</p>
+  </div>
+</div>
+    <div class="row">
+  <div class="column" style="width:50%" >
+   <p><a href="../../../buynow.html" class="button">Buy Now</a>
+   </p>
+  </div>
+  <div class="column" style="width:50%">
+     <a href="drop.html" style="text-align:center; margin-bottom: 100px;font-size: 20px;">see more</a>
+     
+  </div>
+</div>
+  
+  
+</div>    
+</body>
+</html> 
